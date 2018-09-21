@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Тестирование</title>
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/base.js"></script>
+	<link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css">
+
+	<style>
+		
+		#question{
+			padding: 10px;
+			border-radius: 5px; 
+		}
+
+		.options ul{
+			list-style: none;
+		    margin: 0;
+		    padding: 0;
+		}
+
+		.options ul li{
+			padding:  10px;
+			margin: 10px 0px;
+			border-radius: 5px; 
+		}
+
+		.options ul li:hover{
+			background-color: #b4def3;
+			cursor: pointer;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center"></h1>
+		<div id="question" class="bg-warning">
+			
+		</div>
+		<div class="options">
+			<ul></ul>				
+		</div>
+		<button id="answer" class="btn btn-primary">Далее</button>
+	</div>	
+</body>
+
+<script type="text/javascript">
+	var questions = getQuestions();
+	
+	function showQuest(){
+		if( questions.length != 0 ){
+			var q = questions.shift();	
+			$("#question").html('<p>'+q.question+'</p>');
+			$('.options ul').empty();
+			$.each(q.options, function(index, option) {
+				$('.options ul').append('<li class="bg-info">'+option.text+'</li>');
+			});
+		} else {
+			console.log('finish!');
+		}
+	}	
+
+	$(document).ready(function(){
+		showQuest(); 	
+		$("#answer").click(function(){
+			showQuest(); 	
+		})		
+	})
+		
+</script>
+
+</html>
