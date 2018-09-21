@@ -1,3 +1,8 @@
+<?php 
+	if(empty($_SESSION)){
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +14,15 @@
 </head>
 <body>
 	
-	<?php 
-		if( !empty($_SESSION['login']) ){
+	<?php
+		if( !empty($_SESSION['type']) ){
 			switch($_SESSION['type']){
-				case 'teacher' : echo 'teacher'; break;
-				case 'student' : echo 'student'; break;
+				case '1' : echo 'teacher'; break;
+				case '2' : echo 'student'; break;
 			}
 		} else {
 			require_once('authorize.php');
 		}
 	?>
-
 </body>
 </html>

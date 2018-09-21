@@ -11,8 +11,8 @@
 			$db->exec($sql); 
 		}
 
-		function findUser($data){
-			$sql = "SELECT * FROM `users` WHERE password='".$data['password']."' AND l_name='".$data['l_name']."' AND type=".$data['type'];
+		function findUser($data){			
+			$sql = "SELECT * FROM `users` WHERE password='".md5($data['password'])."' AND l_name='".$data['l_name']."' AND type=".$data['type'];
 			return $this->query($sql);
 		}
 
