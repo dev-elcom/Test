@@ -1,0 +1,12 @@
+#authorize .form-container{
+    padding-top: 30px;
+    border: 1px solid #ddd;
+    height: 250px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
